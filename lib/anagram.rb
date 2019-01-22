@@ -1,7 +1,6 @@
 # Class to help find matching anagrams
-puts 'Type words to populate your list, hit enter when finished'
 class Anagram
-  def initialize(list)
+  def update_list(list)
     @list = list
     @sortedList = @list.dup.map { |word| sort_in_lowercase(word) }
   end
@@ -27,6 +26,3 @@ class Anagram
     first == second
   end
 end
-
-# myAna = Anagram.new()
-# p myAna.find_anagrams('one')

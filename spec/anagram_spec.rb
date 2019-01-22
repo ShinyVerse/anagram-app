@@ -1,10 +1,13 @@
 require 'anagram'
 
 describe Anagram do
-  let(:anagram) { described_class.new(["mile", "era", "are", "ear", "time"]) }
+  let(:anagram) { described_class.new }
+  before(:each) do
+    anagram.update_list(%w[mile era are ear time])
+  end
   context 'find_anagrams' do
     it 'returns list of matching words' do
-      expect(anagram.find_anagrams('ear')).to eq ['era', 'are']
+      expect(anagram.find_anagrams('ear')).to eq %w[era are]
     end
   end
 
