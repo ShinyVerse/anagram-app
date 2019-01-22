@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'rspec'
 gem 'travis'
 group :test do
   gem 'rspec'
