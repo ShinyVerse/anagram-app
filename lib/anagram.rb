@@ -5,4 +5,8 @@ class Anagram
     word.gsub!(/\s+/, '')
     word.split('').sort.join('')
   end
+
+  def same_letters?(first, second)
+    first == second
+  end
 end
