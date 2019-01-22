@@ -1,8 +1,8 @@
 # Class to help find matching anagrams
 puts 'Type words to populate your list, hit enter when finished'
 class Anagram
-  def initialize(list = Kernel.gets.chomp)
-    @list = list.split(" ")
+  def initialize(list)
+    @list = list
     @sortedList = @list.dup.map { |word| sort_in_lowercase(word) }
   end
 
@@ -13,6 +13,7 @@ class Anagram
         finalList.push(@list[i])
       end
     end
+    finalList.delete(input)
     finalList
   end
 
