@@ -5,7 +5,7 @@ class App
     @anagram = anagram
   end
 
-  def parse_input(list)
+  def parse_user_input(list)
     raise ArgumentError if validate(list)
     if list.end_with?(".txt")
       file = File.expand_path('../list.txt', File.dirname(__FILE__))
@@ -19,7 +19,7 @@ class App
     puts 'Enter a word and receive anagrams from the list of your word'
     puts 'Write "exit" to finish'
     word = ''
-    @anagram.update_list(@user_list)
+    @anagram.populate_list(@user_list)
     while word != 'exit'
       puts 'Please enter your word to check'
       word = $stdin.gets.chomp

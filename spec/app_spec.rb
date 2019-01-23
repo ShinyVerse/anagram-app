@@ -6,22 +6,22 @@ describe App do
 
   context 'parse_input' do
     it 'can take a file as an argument' do
-      input_list = app.parse_input(File.dirname(__FILE__) + '/list.txt')
+      input_list = app.parse_user_input(File.dirname(__FILE__) + '/list.txt')
       expect(input_list).to eq %w[era cat rat are pear ear]
     end
 
     it 'can take input of string as list' do
-      expect(app.parse_input('era cat rat are pear ear')).to eq %w[era cat rat are pear ear]
+      expect(app.parse_user_input('era cat rat are pear ear')).to eq %w[era cat rat are pear ear]
     end
 
     it 'errors if passed arg that is not a string' do
-      expect { app.parse_input(4) }.to raise_error
+      expect { app.parse_user_input(4) }.to raise_error ArgumentError
     end
   end
 
   context 'start_app' do
     it 'calls find_anagrams when word is entered' do
-      allow(anagram).to receive(:update_list)
+      allow(anagram).to receive(:populate_list)
       allow(anagram).to receive(:find_anagrams)
       allow(STDIN).to receive(:gets).and_return("tac\n", "exit\n")
 
