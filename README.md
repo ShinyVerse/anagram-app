@@ -65,9 +65,10 @@ _____
 
 See [CONTRIBUTING](https://github.com/ShinyVerse/anagram-app/blob/master/CONTRIBUTING.md).
 
-____
+_____
 
-## License
+## License
 
 Free to copy, modify and use.
+
 MIT © Laura Jackson
