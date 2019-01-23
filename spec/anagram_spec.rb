@@ -3,7 +3,7 @@ require 'anagram'
 describe Anagram do
   let(:anagram) { described_class.new }
   before(:each) do
-    anagram.update_list(%w[mile era are ear time])
+    anagram.populate_list(%w[mile era are ear time])
   end
   context 'find_anagrams' do
     it 'returns list of matching words' do
