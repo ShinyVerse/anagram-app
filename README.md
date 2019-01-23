@@ -25,7 +25,7 @@ _____
 ## Technologies and frameworks
 
 - Ruby
-- rSpec
+- RSpec
 - Rubocop
 - Simplecov
 
