@@ -1,5 +1,5 @@
 require_relative 'anagram'
-
+# Handles running of the app
 class App
   def initialize(anagram = Anagram.new)
     @anagram = anagram
@@ -7,19 +7,23 @@ class App
 
   def parse_user_input(list)
     raise ArgumentError if validate(list)
-    if list.end_with?(".txt")
+    if list.end_with?('.txt')
       file = File.expand_path('../list.txt', File.dirname(__FILE__))
       @user_list = File.open(file).read.split("\n")
     else
-      @user_list = list.split(" ")
+      @user_list = list.split(' ')
     end
   end
 
-  def start_app
+  def app_setup
     puts 'Enter a word and receive anagrams from the list of your word'
     puts 'Write "exit" to finish'
-    word = ''
     @anagram.populate_list(@user_list)
+  end
+
+  def start_app
+    app_setup
+    word = ''
     while word != 'exit'
       puts 'Please enter your word to check'
       word = $stdin.gets.chomp
@@ -31,7 +35,7 @@ class App
 
   private
 
-  def validate list
+  def validate(list)
     !list.is_a?(String)
   end
 end

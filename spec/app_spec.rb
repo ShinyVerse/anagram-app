@@ -1,7 +1,7 @@
 require 'app'
 
 describe App do
-  let(:anagram) { double('Anagram double') }
+  let(:anagram) { double('Anagram double', populate_list: true, find_anagrams: true) }
   let(:app) { described_class.new(anagram) }
 
   context 'parse_input' do
@@ -11,7 +11,8 @@ describe App do
     end
 
     it 'can take input of string as list' do
-      expect(app.parse_user_input('era cat rat are pear ear')).to eq %w[era cat rat are pear ear]
+      list = %w[era cat rat are pear ear]
+      expect(app.parse_user_input('era cat rat are pear ear')).to eq list
     end
 
     it 'errors if passed arg that is not a string' do
@@ -19,10 +20,15 @@ describe App do
     end
   end
 
+  context 'app_setup' do
+    it 'calls anagram populate_list method' do
+      app.app_setup
+      expect(anagram).to have_received(:populate_list)
+    end
+  end
+
   context 'start_app' do
     it 'calls find_anagrams when word is entered' do
-      allow(anagram).to receive(:populate_list)
-      allow(anagram).to receive(:find_anagrams)
       allow(STDIN).to receive(:gets).and_return("tac\n", "exit\n")
 
       app.start_app
