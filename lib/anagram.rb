@@ -5,12 +5,10 @@ class Anagram
     @sorted_list = @list.dup.map { |word| sort_in_lowercase(word) }
   end
 
-  def find_anagrams input
+  def find_anagrams(input)
     final_list = []
     @sorted_list.map.with_index do |word, i|
-      if same_letters?(word, sort_in_lowercase(input))
-        final_list.push(@list[i])
-      end
+      final_list.push(@list[i]) if same_letters?(word, sort_in_lowercase(input))
     end
     final_list.delete(input)
     final_list
