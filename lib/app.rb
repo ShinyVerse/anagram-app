@@ -16,7 +16,7 @@ class App
 
   def app_setup
     puts 'Enter a word and receive anagrams from the list of your word'
-    puts 'Write "exit" to finish'
+    puts "Write 'exit' to finish"
     @anagram.populate_list(@user_list)
   end
 

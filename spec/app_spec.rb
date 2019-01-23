@@ -5,7 +5,7 @@ describe App do
   let(:anagram) { double('Anagram double', populate_list: list, find_anagrams: ['list']) }
   let(:app) { described_class.new(anagram) }
 
-  context 'parse_input' do
+  context 'parse_user_input' do
     it 'can take a file as an argument' do
       input_list = app.parse_user_input(File.dirname(__FILE__) + '/list.txt')
       expect(input_list).to eq %w[era cat rat are pear ear]
