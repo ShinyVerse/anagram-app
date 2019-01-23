@@ -28,7 +28,7 @@ class App
       puts 'Please enter your word to check'
       word = $stdin.gets.chomp
       if word != 'exit'
-        puts "The anagrams found are : #{@anagram.find_anagrams(word)}"
+        puts "The anagrams found are: \n#{@anagram.find_anagrams(word).join("\n")}"
       end
     end
   end

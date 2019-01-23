@@ -1,7 +1,7 @@
 require 'app'
 
 describe App do
-  let(:anagram) { double('Anagram double', populate_list: true, find_anagrams: true) }
+  let(:anagram) { double('Anagram double', populate_list: true, find_anagrams: ["list"]) }
   let(:app) { described_class.new(anagram) }
 
   context 'parse_input' do
