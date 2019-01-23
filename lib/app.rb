@@ -6,7 +6,6 @@ class App
   end
 
   def parse_user_input(list)
-    raise ArgumentError if validate(list)
     if list.end_with?('.txt')
       file = File.expand_path('../list.txt', File.dirname(__FILE__))
       @user_list = File.open(file).read.split("\n")
@@ -27,15 +26,10 @@ class App
     while word != 'exit'
       puts 'Please enter your word to check'
       word = $stdin.gets.chomp
-      if word != 'exit'
-        puts "The anagrams found are: \n#{@anagram.find_anagrams(word).join("\n")}"
-      end
+      next unless word != 'exit'
+      list = @anagram.find_anagrams(word)
+      puts "The anagrams found are: \n#{list.join("\n")}" unless list.empty?
+      puts 'No matches' if list.empty?
     end
-  end
-
-  private
-
-  def validate(list)
-    !list.is_a?(String)
   end
 end

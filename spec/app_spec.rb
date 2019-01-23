@@ -1,7 +1,8 @@
 require 'app'
 
 describe App do
-  let(:anagram) { double('Anagram double', populate_list: true, find_anagrams: ["list"]) }
+  list = %w[era cat rat are pear ear]
+  let(:anagram) { double('Anagram double', populate_list: list, find_anagrams: ['list']) }
   let(:app) { described_class.new(anagram) }
 
   context 'parse_input' do
@@ -13,10 +14,6 @@ describe App do
     it 'can take input of string as list' do
       list = %w[era cat rat are pear ear]
       expect(app.parse_user_input('era cat rat are pear ear')).to eq list
-    end
-
-    it 'errors if passed arg that is not a string' do
-      expect { app.parse_user_input(4) }.to raise_error ArgumentError
     end
   end
 

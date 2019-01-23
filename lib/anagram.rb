@@ -14,6 +14,8 @@ class Anagram
     final_list
   end
 
+  private
+
   def sort_in_lowercase(word)
     word.downcase!
     word.gsub!(/\s+/, '')
